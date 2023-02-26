@@ -16,3 +16,20 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+/* Routes - lesson 1 */
+
+Route::get('/hw', function() {
+    return "<h1>Hello world</h1>";
+});
+
+Route::get('/main', function() {
+    $data1 = 'data 1';
+    $data2 = 'data 2';
+
+    return view('main', compact('data1', 'data2'))->with('var1', $data1 . $data2);
+});
+
+Route::get('about', function() {
+    return "<h2>about</h2>";
+});
