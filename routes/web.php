@@ -48,3 +48,15 @@ Route::match(['get', 'post'], 'contact', function() {
 Route::view('test', 'test', ['test' => 'Hello World']);
 
 Route::redirect('about', 'contact', 301);
+
+/* Routes - lesson 3 */
+
+/*
+Route::get('post/{id}/{slug}', function($var, $slug) {
+    return "post with id $var -- $slug";
+})->where(['id' => '[0-9]+'], ['slug' => '[a-zA-Z0-9-_]+']);
+*/
+
+Route::get('post/{id}/{slug}', function($var, $slug) {
+    return "post with id $var -- $slug";
+});
