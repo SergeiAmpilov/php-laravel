@@ -21,7 +21,7 @@ Route::get('/', function () {
 
 Route::get('/hw', function() {
     return "<h1>Hello world</h1>";
-});
+})->name('hw');
 
 Route::get('/main', function() {
     $data1 = 'data 1';
@@ -83,3 +83,8 @@ Route::get('article/{slug?}', function($slug = null) {
     return 'articles list page';
 })->name('article');
 
+// все остальные маршруты перенаправляем
+Route::fallback(function () {
+    abort(404, 'Oops! Page not found...');
+//    return redirect()->route('hw');
+});
