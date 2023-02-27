@@ -10,9 +10,15 @@
 <body>
     <h2>Contact</h2>
     <form action="{{ route('contact2') }}" method="post">
+
+{{--        {{ method_field('DELETE') }}--}}
+        @method('DELETE')
+
+
 {{--        <input type="hidden" name="_token" value="<?= csrf_token() ?>">--}}
 {{--        {{ csrf_field() }}--}}
         @csrf
+        <input type="hidden" name="_method" value="DELETE">
         Name: <input type="text" name="name" id=""><br>
         Email: <input type="email" name="email" id=""><br>
         <button type="submit">Send</button>

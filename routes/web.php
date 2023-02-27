@@ -36,7 +36,7 @@ Route::get('about', function() {
 
 /* Routes - lesson 2 */
 
-Route::match(['get', 'post'], 'contact', function() {
+Route::match(['get', 'post', 'delete'], 'contact', function() {
 
     if (!empty($_POST)) {
         dump($_POST);
@@ -60,3 +60,26 @@ Route::get('post/{id}/{slug}', function($var, $slug) {
 Route::get('post/{id}/{slug}', function($var, $slug) {
     return "post with id $var -- $slug";
 });
+
+
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::get('posts', function () {
+        return 'posts list';
+    });
+
+    Route::get('post/create', function () {
+        return 'post create';
+    });
+
+    Route::get('post/{id}/edit', function ($id) {
+        return "post idit | $id";
+    })->name('post');
+});
+
+
+// необязательные параметры маршрутов
+Route::get('article/{slug?}', function($slug = null) {
+    dump($slug);
+    return 'articles list page';
+})->name('article');
+

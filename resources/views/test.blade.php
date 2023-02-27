@@ -18,5 +18,8 @@
     <p>
         {{ $test }}
     </p>
+
+    <a href="{{ route('article', ['slug' => 99]) }}">go to article</a>
+    {{ route('admin.post', ['id' => 567]) }}
 </body>
 </html>
