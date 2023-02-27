@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
@@ -27,6 +28,8 @@ Route::prefix('pages')->group(function() {
     Route::get('about', [PageController::class, 'show']);
     Route::get('{slug}', [PageController::class, 'slug']);
 });
+
+Route::resource('posts', PostController::class);
 
 
 /* Routes - lesson 1 */
