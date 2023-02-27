@@ -9,7 +9,7 @@
 </head>
 <body>
     <h1>Edit post</h1>
-    <form action="{{ route('posts.update', ['post' => $id]) }}" method="post">
+    <form action="{{ route('posts.update', ['slug' => $id]) }}" method="post">
         @csrf
         @method('PUT')
         Title: <input type="text" name="title" value="{{ $id  }}">

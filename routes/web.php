@@ -29,7 +29,11 @@ Route::prefix('pages')->group(function() {
     Route::get('{slug}', [PageController::class, 'slug']);
 });
 
-Route::resource('posts', PostController::class);
+Route::resource('posts', PostController::class, [
+    'parameters' => [
+        'posts' => 'slug'
+    ]
+]);
 
 
 /* Routes - lesson 1 */
