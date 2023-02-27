@@ -33,3 +33,18 @@ Route::get('/main', function() {
 Route::get('about', function() {
     return "<h2>about</h2>";
 });
+
+/* Routes - lesson 2 */
+
+Route::match(['get', 'post'], 'contact', function() {
+
+    if (!empty($_POST)) {
+        dump($_POST);
+    }
+
+    return view('contact');
+})->name('contact2');
+
+Route::view('test', 'test', ['test' => 'Hello World']);
+
+Route::redirect('about', 'contact', 301);
