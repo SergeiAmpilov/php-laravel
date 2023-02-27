@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\PageController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,22 +15,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index']);
+Route::get('/main', [HomeController::class, 'main']);
+Route::get('/maintest', [HomeController::class, 'test']);
+
+
+Route::prefix('pages')->group(function() {
+    Route::get('about', [PageController::class, 'show']);
 });
+
 
 /* Routes - lesson 1 */
 
 Route::get('/hw', function() {
     return "<h1>Hello world</h1>";
 })->name('hw');
-
-Route::get('/main', function() {
-    $data1 = 'data 1';
-    $data2 = 'data 2';
-
-    return view('main', compact('data1', 'data2'))->with('var1', $data1 . $data2);
-});
 
 Route::get('about', function() {
     return "<h2>about</h2>";
