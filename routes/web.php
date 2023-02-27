@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Test\TestController;
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
@@ -18,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/main', [HomeController::class, 'main']);
 Route::get('/maintest', [HomeController::class, 'test']);
+Route::get('test2', [TestController::class, 'index']);
+
 
 
 Route::prefix('pages')->group(function() {
     Route::get('about', [PageController::class, 'show']);
+    Route::get('{slug}', [PageController::class, 'slug']);
 });
 
 

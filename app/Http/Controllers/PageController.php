@@ -9,4 +9,10 @@ class PageController extends Controller
     {
         return view('pages.about');
     }
+
+    public function slug($slug)
+    {
+        return view("pages.show", compact('slug'));
+    }
+
 }
