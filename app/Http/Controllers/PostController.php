@@ -20,9 +20,19 @@ class PostController extends Controller
      */
     public function index(): View
     {
-        //
-        $query = DB::insert("INSERT INTO posts (title, content, slug) values (?, ?, ?)", ['Article 5', 'Text of article 5', 'art-5']);
-        dump($query);
+        /*$query = DB::insert("INSERT INTO posts (title, content, slug) values (?, ?, ?)", ['Article 5', 'Text of article 5', 'art-5']);
+        dump($query);*/
+        DB::update('update posts set slug = ?, updated_at = ? where id = ?',
+            ['art-1', NOW(), 1]);
+
+        DB::update('update posts set created_at = ? where created_at is null',
+            [NOW()]);
+
+        DB::update('update posts set updated_at = ? where updated_at is null',
+            [NOW()]);
+
+
+
         $posts = DB::select('SELECT * FROM posts WHERE id >= ?', [1]);
         dump($posts);
         return view('posts.index');
