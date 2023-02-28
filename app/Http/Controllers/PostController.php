@@ -22,6 +22,7 @@ class PostController extends Controller
     {
         /*$query = DB::insert("INSERT INTO posts (title, content, slug) values (?, ?, ?)", ['Article 5', 'Text of article 5', 'art-5']);
         dump($query);*/
+        /*
         DB::update('update posts set slug = ?, updated_at = ? where id = ?',
             ['art-1', NOW(), 1]);
 
@@ -30,6 +31,10 @@ class PostController extends Controller
 
         DB::update('update posts set updated_at = ? where updated_at is null',
             [NOW()]);
+        */
+
+        DB::delete('delete from posts where id = ?', [5]);
+
 
 
 
