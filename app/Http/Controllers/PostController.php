@@ -33,8 +33,23 @@ class PostController extends Controller
             [NOW()]);
         */
 
-        DB::delete('delete from posts where id = ?', [5]);
+//        DB::delete('delete from posts where id = ?', [5]);
 
+
+        // transactions
+        DB::beginTransaction();
+        try {
+            DB::update('update posts set created_at = ? where created_at is null',
+                [NOW()]);
+
+            DB::update('update posts set updated_at = ? where updated_at is null',
+                [NOW()]);
+
+            DB::commit();
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+        }
 
 
 
