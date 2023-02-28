@@ -4,6 +4,8 @@
 namespace App\Http\Controllers;
 
 
+use Illuminate\View\View;
+
 class HomeController extends Controller
 {
     public function index()
@@ -11,18 +13,11 @@ class HomeController extends Controller
         return view('welcome');
     }
 
-    public function main()
+    public function main(): View
     {
         $data1 = 'data 1';
         $data2 = 'data 2';
 
-        dump(
-            config('database.connections.mysql.database')
-        );
-
-
-        dump($_ENV);
-        dump(env('AMP_SETTING', 'def value'));
 
         return view('main', compact('data1', 'data2'))->with('var1', $data1 . $data2);
     }

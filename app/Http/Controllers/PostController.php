@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
@@ -16,9 +18,13 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         //
+        $query = DB::insert("INSERT INTO posts (title, content, slug) values (?, ?, ?)", ['Article 5', 'Text of article 5', 'art-5']);
+        dump($query);
+        $posts = DB::select('SELECT * FROM posts WHERE id >= ?', [1]);
+        dump($posts);
         return view('posts.index');
     }
 
