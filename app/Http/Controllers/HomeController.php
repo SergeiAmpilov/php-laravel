@@ -4,6 +4,7 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Post;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -18,39 +19,10 @@ class HomeController extends Controller
     public function main(): View
     {
 
-        // lets proceed with db countries
-
-        /*
-        $data = DB::table('country')->select('code', 'name', 'population')->limit(3)->orderBy('population', 'desc')->get();
-        dump($data->all());
-
-        $city = DB::table('city')->first();
-        dump($city);
-
-        $zaanstad = DB::table('city')->select('id', 'name')->find(19);
-        dump($zaanstad);
-
-        $bigCountries = DB::table('country')->select('code', 'name', 'population')->where([
-            ['population', '>', 1000000000],
-            ['code', 'CHN']
-        ])->get();
-        dump($bigCountries->all());
-
-        $countryName = DB::table('country')->where('population', '>', 100000000)->value('LocalName');
-        dump($countryName);
-
-        $column = DB::table('countrylanguage')->limit(10)->pluck('Language', 'CountryCode')->count();
-        dump($column);
-        */
-
-//        $data = DB::table('city')->select('CountryCode')->distinct()->get()->all();
-        /*
-        $data = DB::table('city')->select('city.id', 'city.name as city_name', 'country.code', 'country.name as country_name')->limit(10)
-            ->join('country', 'city.CountryCode', '=', 'country.code')
-            ->orderBy('city.id', 'desc')
-            ->get();
-        dump($data);
-        */
+        $post = new Post();
+        $post->title = 'Article 3';
+//        $post->content = 'Post content 3';
+        $post->save();
 
         $data1 = 'data 1';
         $data2 = 'data 2';
