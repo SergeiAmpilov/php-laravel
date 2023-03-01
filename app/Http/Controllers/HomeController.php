@@ -44,11 +44,13 @@ class HomeController extends Controller
         */
 
 //        $data = DB::table('city')->select('CountryCode')->distinct()->get()->all();
+        /*
         $data = DB::table('city')->select('city.id', 'city.name as city_name', 'country.code', 'country.name as country_name')->limit(10)
             ->join('country', 'city.CountryCode', '=', 'country.code')
             ->orderBy('city.id', 'desc')
             ->get();
         dump($data);
+        */
 
         $data1 = 'data 1';
         $data2 = 'data 2';
