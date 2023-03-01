@@ -20,6 +20,7 @@ class HomeController extends Controller
 
         // lets proceed with db countries
 
+        /*
         $data = DB::table('country')->select('code', 'name', 'population')->limit(3)->orderBy('population', 'desc')->get();
         dump($data->all());
 
@@ -37,6 +38,17 @@ class HomeController extends Controller
 
         $countryName = DB::table('country')->where('population', '>', 100000000)->value('LocalName');
         dump($countryName);
+
+        $column = DB::table('countrylanguage')->limit(10)->pluck('Language', 'CountryCode')->count();
+        dump($column);
+        */
+
+//        $data = DB::table('city')->select('CountryCode')->distinct()->get()->all();
+        $data = DB::table('city')->select('city.id', 'city.name as city_name', 'country.code', 'country.name as country_name')->limit(10)
+            ->join('country', 'city.CountryCode', '=', 'country.code')
+            ->orderBy('city.id', 'desc')
+            ->get();
+        dump($data);
 
         $data1 = 'data 1';
         $data2 = 'data 2';
