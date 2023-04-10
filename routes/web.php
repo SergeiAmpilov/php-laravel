@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index']);
+Route::get('/query', [TestController::class, 'query']);
 Route::get('/main', [HomeController::class, 'main']);
 Route::get('/maintest', [HomeController::class, 'test']);
 Route::get('test2', [TestController::class, 'index']);
