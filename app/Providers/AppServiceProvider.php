@@ -22,8 +22,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         //
+        /*
         DB::listen(function (QueryExecuted $query) {
             dump($query);
         });
+        */
     }
 }
