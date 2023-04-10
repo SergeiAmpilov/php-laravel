@@ -19,12 +19,19 @@ class HomeController extends Controller
     public function main(): View
     {
 
+        DB::update("UPDATE posts SET created_at = :created_at , updated_at = :updated_at WHERE created_at IS NULL OR updated_at IS NULL", [
+            'created_at' => NOW(),
+            'updated_at' => NOW(),
+        ]);
+
 //        $query = DB::insert("INSERT INTO posts (title, content) VALUES (?, ?)", ['Hello world', 'This is article 5']);
         /////////
-        $res_db = DB::select("SELECT * FROM posts WHERE id > :id", ['id' => 3]);
+        $res_db = DB::select("SELECT * FROM posts WHERE id > :id", ['id' => 0]);
         dump($res_db);
         ////////
         ///
+
+
         return view('welcome');
 
         /*
