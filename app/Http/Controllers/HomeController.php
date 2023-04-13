@@ -108,12 +108,13 @@ class HomeController extends Controller
 
     public function getPost()
     {
-        $postData = Post::query()->find(6);
-        dump($postData->rubric);
+//        $postData = Post::query()->find(6);
+//        dump($postData->rubric);
 
 
         $rubricData = Rubric::query()->find(4);
-        dump($rubricData->post);
+        dump($rubricData);
+        dump($rubricData->posts);
     }
 
     public function test()
