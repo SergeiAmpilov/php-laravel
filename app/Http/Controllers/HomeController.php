@@ -7,6 +7,7 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\Country;
 use App\Models\Post;
+use App\Models\Rubric;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -86,9 +87,11 @@ class HomeController extends Controller
 
 //        Post::query()->where('id', '>', 3)->update(['updated_at' => NOW()]);
 
-        if ($post = Post::query()->find(4)) {
-            $post->delete();
-        }
+//        if ($post = Post::query()->find(4)) {
+//            $post->delete();
+//        }
+
+        Post::destroy(5);
     }
 
     public function postlist() {
@@ -101,6 +104,16 @@ class HomeController extends Controller
         $data = Country::query()->find('ARM');
         dump($data);
 
+    }
+
+    public function getPost()
+    {
+        $postData = Post::query()->find(6);
+        dump($postData->rubric);
+
+
+        $rubricData = Rubric::query()->find(4);
+        dump($rubricData->post);
     }
 
     public function test()

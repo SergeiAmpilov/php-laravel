@@ -20,6 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/post', [HomeController::class, 'post']);
 Route::get('/postlist', [HomeController::class, 'postlist']);
+Route::get('/getpost', [HomeController::class, 'getPost']);
 
 Route::get('/query', [TestController::class, 'query']);
 Route::get('/main', [HomeController::class, 'main']);
