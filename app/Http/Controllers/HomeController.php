@@ -4,6 +4,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\City;
+use App\Models\Country;
 use App\Models\Post;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
@@ -62,10 +64,43 @@ class HomeController extends Controller
     }
 
     public function post() {
-        $post = new Post(); // work with model
-        $post->title = 'Article 2';
-//        $post->content = 'Lorem ipsum 1';
-        $post->save();
+//        $post = new Post();
+//        $post->title = 'Article 3';
+//        $post->content = 'Lorem ipsum 3';
+//        $post->save();
+
+
+//        Post::query()->create([
+//            'title' => 'Post 5',
+//            'content' => 'Lorem ipsum 5'
+//        ]);
+
+//        $post = new Post();
+//        $post->fill([ 'title' => 'Post 6', 'content' => 'Lorem ipsum 6' ]);
+//        $post->save();
+
+//        $post = Post::query()->find(5);
+//        $post->content = 'New content after update';
+//        $post->title = "{$post->title} Updated";
+//        $post->save();
+
+//        Post::query()->where('id', '>', 3)->update(['updated_at' => NOW()]);
+
+        if ($post = Post::query()->find(4)) {
+            $post->delete();
+        }
+    }
+
+    public function postlist() {
+
+//        $data = Country::all();
+//        $data = Country::limit(5)->get();
+//        $data = Country::query()->limit(5)->get();
+//        $data = Country::query()->where('code', '<', 'AGO')->select('Code', 'Name')->get();
+//        $data = City::query()->find(4);
+        $data = Country::query()->find('ARM');
+        dump($data);
+
     }
 
     public function test()

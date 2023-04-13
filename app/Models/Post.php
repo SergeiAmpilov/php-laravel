@@ -17,4 +17,6 @@ class Post extends Model
         'content' => 'Lorem ipsum default',
     ];
 
+    protected $fillable = ['title', 'content'];
+
 }
