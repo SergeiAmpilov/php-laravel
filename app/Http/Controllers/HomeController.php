@@ -61,6 +61,13 @@ class HomeController extends Controller
 
     }
 
+    public function post() {
+        $post = new Post(); // work with model
+        $post->title = 'Article 2';
+//        $post->content = 'Lorem ipsum 1';
+        $post->save();
+    }
+
     public function test()
     {
         return __METHOD__;
