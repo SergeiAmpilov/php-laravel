@@ -8,3 +8,7 @@
         <h1>About</h1>
     </div>
 @endsection
+
+@section('title')
+    @parent - {{ $title  }}
+@endsection

@@ -7,12 +7,15 @@ class PageController extends Controller
 {
     public function main()
     {
-        return view('pages.main');
+        $title = 'Main page';
+        $h1 = '<h1 class="fw-light">Das ist home page</h1>';
+        return view('pages.main', compact('title', 'h1'));
     }
 
     public function about()
     {
-        return view('pages.about');
+        $title = 'About page';
+        return view('pages.about', compact('title'));
     }
 
 
