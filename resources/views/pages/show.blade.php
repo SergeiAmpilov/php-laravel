@@ -9,6 +9,7 @@
 </head>
 <body>
     <h1>
+        hello world
         {{ $slug }}
     </h1>
 

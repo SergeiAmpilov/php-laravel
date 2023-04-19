@@ -17,11 +17,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+
+//  lets work with templates
+Route::get('/', [PageController::class, 'main'])->name('home');
+Route::get('/page/about', [PageController::class, 'about'])->name('page.about');
+
+
+
+
+
+//Route::get('/', [HomeController::class, 'index']);
 Route::get('/post', [HomeController::class, 'post']);
 Route::get('/postlist', [HomeController::class, 'postlist']);
 Route::get('/getpost', [HomeController::class, 'getPost']);
 Route::get('/gettag', [HomeController::class, 'getTag']);
+
+
 
 Route::get('/query', [TestController::class, 'query']);
 Route::get('/main', [HomeController::class, 'main']);
