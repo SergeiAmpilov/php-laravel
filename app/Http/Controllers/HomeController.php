@@ -112,9 +112,17 @@ class HomeController extends Controller
 //        dump($postData->rubric);
 
 
-        $rubricData = Rubric::query()->find(4);
+//        $rubricData = Rubric::query()->find(4);
+        $rubricData = Rubric::query()->find(4)->posts->where('id', '>', 3);
         dump($rubricData);
-        dump($rubricData->posts);
+//        dump($rubricData->posts);
+    }
+
+    public function getTag()
+    {
+        $tagData = Post::query()->find(1)->tags;
+        dump($tagData);
+
     }
 
     public function test()
