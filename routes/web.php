@@ -117,3 +117,7 @@ Route::fallback(function () {
     abort(404, 'Oops! Page not found...');
 //    return redirect()->route('hw');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
